@@ -1,0 +1,1 @@
+var time_lang = new Array('weeks','days','hours','minutes','seconds');

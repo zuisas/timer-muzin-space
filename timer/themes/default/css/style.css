@@ -1,0 +1,45 @@
+@import url(http://fonts.googleapis.com/css?family=Open+Sans+Condensed:300&subset=latin,cyrillic);
+* {margin:0px;padding:0px;}
+.countdown_block {display:block;float:left;margin-right:0px;position:relative;height:90px;}
+.digit {
+	display:block;
+	float:left;
+	margin:0px 2px 0px 2px;
+	background-color:#444;
+	border-radius:15px;
+	text-align:center;
+	color:#fff;
+	letter-spacing:-1px;
+	box-shadow:1px 1px 1px rgba(4, 4, 4, 0.35);
+	font-size:32pt;
+	padding:5px 14px;
+	background-image: linear-gradient(bottom, #3A3A3A 50%, #444444 50%);
+	background-image: -o-linear-gradient(bottom, #3A3A3A 50%, #444444 50%);
+	background-image: -moz-linear-gradient(bottom, #3A3A3A 50%, #444444 50%);
+	background-image: -webkit-linear-gradient(bottom, #3A3A3A 50%, #444444 50%);
+	background-image: -ms-linear-gradient(bottom, #3A3A3A 50%, #444444 50%);
+	
+	background-image: -webkit-gradient(
+		linear,
+		left bottom,
+		left top,
+		color-stop(0.5, #3A3A3A),
+		color-stop(0.5, #444444)
+	);
+	font-family:Open Sans Condensed,serif;
+}
+.separated {
+	float:left;
+}
+.separated:after {
+	content:":";
+	padding:15px 0px 10px 0px;
+	font-size:38pt;
+}
+.countdown_block_title {
+	text-align:center;
+	font-family:Open Sans Condensed,serif;
+	bottom:0px;
+	position:absolute;
+	width:100%;
+}

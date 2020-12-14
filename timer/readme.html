@@ -1,0 +1,229 @@
+<!--
+/*****************************
+Разработчик: Валерий Корецкий
+Сайт: http://valerykoretsky.com/
+Продукт: Таймер/Счетчик обратного отсчета
+Дата выпуска: 22.07.2014
+Статус: Free
+*****************************/
+-->
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+<meta charset="utf-8">
+<title>Документация SD Timer v.0.1</title>
+<style>
+@import url(http://fonts.googleapis.com/css?family=Ubuntu:400,700&subset=latin,cyrillic);
+* {padding:0px;margin:0px;}
+body {width:100%;height:100%;font-family:Ubuntu,serif;font-size:11pt;background: #f4f4f4;background: -moz-radial-gradient(center, ellipse cover, #f4f4f4 0%, #a7e8f9 100%);background: -webkit-gradient(radial, center center, 0px, center center, 100%, color-stop(0%,#f4f4f4), color-stop(100%,#a7e8f9));background: -webkit-radial-gradient(center, ellipse cover, #f4f4f4 0%,#a7e8f9 100%);background: -o-radial-gradient(center, ellipse cover, #f4f4f4 0%,#a7e8f9 100%);background: -ms-radial-gradient(center, ellipse cover, #f4f4f4 0%,#a7e8f9 100%);background: radial-gradient(ellipse at center, #f4f4f4 0%,#a7e8f9 100%);filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#f4f4f4', endColorstr='#a7e8f9',GradientType=1 );}
+a {text-decoration:none;color:#2E89A0;}
+a:hover {text-decoration:underline;}
+i {font-family:Verdana,serif;color:#666;}
+h1 {font-size: 4em;color: #f4f4f4;font-weight: 700;text-align: center;text-shadow: 1px 2px 0px #90C6DB;}
+h3 {font-size:1.3em;margin:5px 10px;border-bottom:#888 1px dotted;}
+pre {background:#ddd;padding:5px;color:#000;}
+.content {width:700px;margin:20px auto;}
+.text {padding:10px;}
+.video {margin:10px auto;width:640px;}
+fieldset {  border: 2px solid #4FB5CF;margin:10px 0px 20px 0px;  background: #fff;  border-radius: 3px;}
+fieldset legend {  background: #4FB5CF;  color: #fff;  padding: 5px 10px;  border-radius: 3px;  box-shadow: 0 0 0 2px #fff;  margin-left: 20px;}
+.copy {margin:50px auto 15px auto;text-align:center;color:#333333;}
+.copy a {text-decoration:none;border-bottom:#5abcbf 1px solid;color:#167575;}
+.copy a:hover {border-bottom:none;color:#5abcbf;}
+</style>
+<!--[if lt IE 9]>
+	<script src="http://html5shim.googlecode.com/svn/trunk/html5.js"></script>
+<![endif]-->
+<head>
+<body>
+<div class="container">
+	<div class="content">
+		<h1>Документация</h1>
+		<fieldset>
+			<legend>Оглавление</legend>
+			<div class="text">
+				<a href="#b1">1. Описание</a><br />
+				<a href="#b11">1.1. Общая информация</a><br />
+				<a href="#b12">1.2. Возможности</a><br />
+				<a href="#b2">2. Структура скрипта</a><br />
+				<a href="#b21">2.1. Структура директорий и файлов</a><br />
+				<a href="#b22">2.2. Структура шаблонов</a><br />
+				<a href="#b3">3. Установка кода</a><br />
+				<a href="#b31">3.1. Установка кода на сайт</a><br />
+				<a href="#b32">3.2. Установка таймера/счетчика с отображением разных страниц</a><br />
+				<a href="#b4">4. Работа с админпанелью</a><br />
+				<a href="#b41">4.1. Создание администратора</a><br />
+				<a href="#b42">4.2. Настройка времени</a><br />
+				<a href="#b43">4.3. Настройка страниц</a><br />
+				<a href="#b44">4.4. Настройка внешнего вида</a><br />
+				<a href="#b5">5. Поддержка и другие продукты</a>
+			</div>
+		</fieldset>
+		<fieldset>
+			<a name="b1"></a>
+			<legend>1. Описание</legend>
+			<a name="b11"></a><h3>1.1. Общая информация</h3>
+			<div class="text">
+				<b>SD Timer</b> - это многофункциональный бесплатный таймер/счетчик обратного отсчета. Скрипт предназначен для создания на своем сайте таймера, цели установки бывают разными, это и необходимость наглядно сообщить пользователю об 
+				открытии своего проекта, проведение акций, чтобы сообщить о лимите времени. Серверная часть написана на PHP, база данных внутренняя, поэтому он может быть установлен практически на любом существующем хостинге в мире, клиентская часть имеет стандартный набор 
+				JavaScript/jQuery,HTML,CSS. 	
+			</div>
+			<a name="b12"></a><h3>1.2. Возможности</h3>
+			<div class="text">
+				- выбор типа таймер (отсчет к указанной дате, отсчет указанного времени и специальный тип);<br />
+				- поддержка cookie и IP-пользователя;<br />
+				- настройка разных страниц при активном и неактивном таймере;<br />
+				- настройка редирект по завершению таймера;<br />
+				- настройка шаблонов;<br />
+				- выбор языка для подписей;<br />
+				- настройка отображаемых блоков (недели, дни, часы, минуты, секунды);<br />
+				- добавление неограниченного числа счетчиков на страницу.
+			</div>
+		</fieldset>
+		<fieldset>
+			<a name="b2"></a>
+			<legend>2. Структура скрипта</legend>
+			<a name="b21"></a><h3>2.1. Структура директорий и файлов</h3>
+			<div class="text">
+				<i>timer/static</i> - статические файлы скрипта, таблицы стилей, скрипты, изображения;<br />
+				<i>timer/themes</i> - шаблоны таймера;<br />
+				<i>timer/tools</i> - системные файлы;<br />
+				<i>timer/tools/iddb</i> - файлы базы данных;<br />
+				<i>timer/tools/admin.config.php</i> - файл конфигураций админпанели;<br />
+				<i>timer/tools/config.php</i> - файл конфигураций таймера;<br />
+				<i>timer/tools/iddb.class.php</i> - класс для работы с базой данных;<br />
+				<i>timer/tools/timer.class.php</i> - класс для работы с таймером;<br />
+				<i>timer/admin.php</i> - файл админпанели<br />
+				<i>timer/js_timer.php</i> - файл генерации JavaScript-кода при установке таймера на страницу<br />
+				<i>timer/iframe_timer.php</i> - файл генерации страницы с рабочим таймером<br />
+				<i>timer/index.php</i> - индексный файл, используется в случае необходимости отображения разных страниц для активного/пассивного таймера (бекап)<br />
+				<i>timer/readme.html</i> - файл документации<br />
+				<i>index.php</i> - индексный файл, используется в случае необходимости отображения разных страниц для активного/пассивного таймера<br />
+				<i>demo.php</i> - демострация работы таймера<br />
+			</div>
+			<a name="b22"></a><h3>2.2. Структура шаблонов</h3>
+			<div class="text">
+				Раcсмотрим шаблон <b>default</b>:<br /><br />
+				<i>timer/css</i> - статические файлы скрипта, таблицы стилей, скрипты, изображения;<br />
+				<i>timer/css/style.css</i> - шаблоны таймера;<br />
+				<i>timer/images</i> - системные файлы;<br />
+				<i>timer/js</i> - файлы базы данных;<br />
+				<i>timer/functions.js</i> - файл конфигураций админпанели.<br /><br />
+				HTML-верстка шаблона состоит из следующих элементов:<br /><br />
+				<i>.countdown_block</i> - временной блок (недели, дни, часы, минуты, секунды);<br />
+				<i>.digit</i> - стиль цифры;<br />
+				<i>.separated</i> - разделитель между временными блоками;<br />
+				<i>.countdown_block_title</i> - заголовок временного блока.<br /><br />
+				Код верстки блока:
+<pre class="html">
+&lt;div id=&quot;countdown_block_0&quot; class=&quot;countdown_block&quot; data-percent=&quot;100&quot;&gt; 
+	&lt;div class=&quot;countdown_block_title&quot;&gt;недель&lt;/div&gt; 
+	&lt;div class=&quot;countdown_block_value&quot;&gt; 
+		&lt;span class=&quot;digit-group&quot;&gt; 
+			&lt;span class=&quot;digit&quot;&gt;0&lt;/span&gt; 
+			&lt;span class=&quot;digit&quot;&gt;1&lt;/span&gt; 
+		&lt;/span&gt; 
+	&lt;/div&gt; 
+&lt;/div&gt;
+</pre>
+			</div>
+		</fieldset>
+		<fieldset>
+			<a name="b3"></a>
+			<legend>3. Установка кода</legend>
+			<div class="video">
+				<iframe width="640" height="360" src="//www.youtube.com/embed/2KUpDolp1uQ?vq=hd720&rel=0" frameborder="0" allowfullscreen></iframe>
+			</div>
+			<a name="b31"></a><h3>3.1. Установка кода на сайт</h3>
+			<div class="text">
+				Чтобы установить таймер/счетчик на сайте необходимо	<br /><br />
+				1. Cкачать, распаковать и загрузить папку timer в корень директории на странице которой будет расположен таймер, архив со скриптом таймера.<br /><br />
+				2. Выставить права 777 на папки:<br />
+					<i>timer/tools</i><br />
+					<i>timer/tools/iddb</i><br />
+					<i>timer/tools/iddb/value</i>
+					<br /><br />
+				3. Выставить права 666 на файлы:<br />
+					<i>timer/tools/admin.config.php</i><br />
+					<i>timer/tools/config.php</i><br />
+					<i>timer/tools/iddb/table.php</i>
+					<br /><br />
+				4. Установить в необходимом месте, где должен отображаться таймер, код:
+<pre class="html">
+&lt;iframe id=&quot;timer_iframe&quot; src=&quot;timer/iframe_timer.php&quot; 
+	frameborder=&quot;0&quot; style=&quot;width:100%;height:100%;&quot;&gt;&lt;/iframe&gt;
+</pre><br />	
+				5. Зайти в админпанель, адрес http://пусть_к_вашей_папке/timer/admin.php (например, http://www.site.ru/timer/admin.php), и настроить таймер.
+			</div>
+			<a name="b32"></a><h3>3.2. Установка таймера/счетчика с отображением разных страниц</h3>
+			<div class="text">
+				<b>Внимание!</b> Данный метод не подходит для установки в корень сайта, если Ваш сайт работает на какой либо CMS (Wordpress, Joomla, DLE, Drupal и т.д.) и уже имеет в корневой папке файл index.php. 
+				Скрипт можно установить в какой подкаталог сайта.<br />
+				Чтобы установить таймер/счетчик на сайте необходимо:<br /><br />
+				1. Cкачать, распаковать и загрузить папку timer и файл index.php в корень директории на странице которой будет расположен таймер, архив со скриптом таймера.<br /><br />
+				2. Выставить права 777 на папки:<br />
+					<i>timer/tools</i><br />
+					<i>timer/tools/iddb</i><br />
+					<i>timer/tools/iddb/value</i>
+					<br /><br />
+				3. Выставить права 666 на файлы:<br />
+					<i>timer/tools/admin.config.php</i><br />
+					<i>timer/tools/config.php</i><br />
+					<i>timer/tools/iddb/table.php</i>
+					<br /><br />
+				4. Зайти в админпанель, адрес http://пусть_к_вашей_папке/timer/admin.php (например, http://www.site.ru/timer/admin.php), и настроить таймер.
+			</div>
+		</fieldset>
+		<fieldset>
+			<a name="b4"></a>
+			<legend>4. Работа с админпанелью</legend>
+			<div class="video">
+				<iframe width="640" height="360" src="//www.youtube.com/embed/Wf72-ubEwoY?vq=hd720&rel=0" frameborder="0" allowfullscreen></iframe>
+			</div>
+			<a name="b41"></a><h3>4.1. Создание администратора</h3>
+			<div class="text">
+				Если Вы впервые попали в админпанель таймера, ссылка http://пусть_к_вашей_папке/timer/admin.php (например, http://www.site.ru/timer/admin.php), то Вам будет предложено создать аккаунт администратора. Для этого необходимо 
+				указать желаемую пару логин/пароль и нажать кнопку "Создать". В дальнейшем, при входе, будет запрашиваться указанные Вами логин и пароль для авторизации.
+			</div>
+			<a name="b42"></a><h3>4.2. Настройка времени</h3>
+			<div class="text">
+				Когда Вы принялись за настройку времени, первым что требуется сделать - провести настройку времени. SD Timer поддерживает три типа таймера/счетчика, это<br /><br />
+				<b>1. Отсчет к дате</b> - отсчет времени ведется к указанной конечной дате, больше всего подходит тем, у кого есть конечный срок выпуска продукции, окончание акции/конкурса.<br /><br />
+				<b>2. Отсчет времени</b> - отсчет ведется непосредственно указанного времени, например, 1 день. Отсчет индивидуален для каждого посетителя, то есть время начинает отсчитывать с момента первого посещения страницы/сайта. 
+					В данном типе таймера существует настройка Cookie и IP, это необходимо для того, чтобы при последующих заходах на сайт, таймер отсчитывался не сначала, а с учетом первого посещения.<br /><br />
+				<b>3. Специальный</b> - суть данного типа заключается в том, что отсчет времени ведется до указанного времени, дня недели либо числа месяца. Например, если Вам необходимо чтобы таймер постоянно 
+					отсчитывал время до 10 числа месяца, а 11 числа начинал отсчет сначала до следующего месяца, то этот тип специально для Вас.<br />
+			</div>
+			<a name="b43"></a><h3>4.3. Настройка страниц</h3>
+			<div class="text">
+				Настройка страниц необходима в двух случаях:<br /><br />
+				1. Если необходимо, по завершению таймера, перенаправлять пользователя на другую страницу - для этого отмечаем галочкой соответствующий пункт и указываем страницу для редиректа.<br /><br />
+				2. Если необходимо отображаться разное содержимое страницы для активного таймера и оконченного - отмечаем соответствующий пункт и указываем ссылки на страницы с активным таймером 
+					(предварительно на нее устанавливаем таймер, <a href="#b31">пункт 3.1.</a>) и без таймера, то есть страницу которая должна отображаться при выключенном таймере. Следует отметить, если данные страницы лежат в одной директории с файлом index.php таймера, <a href="#b32">пункт 3.2.</a>, то можно указать только их имена.
+			</div>
+			<a name="b44"></a><h3>4.4. Настройка внешнего вида</h3>
+			<div class="text">
+				Среди настроек внешнего вида существует выбор шаблона, выбор языка подписей (имеется ввиду подписей "недель", "дней", "часов", "минут", "секунд") и выбор соответствующих блоков для отображения.
+			</div>
+		</fieldset>
+		<fieldset>
+			<a name="b5"></a>
+			<legend>5. Поддержка и другие продукты</legend>
+				<div class="text">
+					<u>Контакты</u><br />
+					<b>facebook</b>: <a href="https://www.facebook.com/mr.koretsky" target="blank" rel="nofollow">https://www.facebook.com/mr.koretsky</a><br />
+					<b>twitter</b>: <a href="https://twitter.com/valrokceo" target="blank" rel="nofollow">https://twitter.com/valrokceo</a><br />
+					<b>сайт</b>: <a href="https://valerykoretsky.com" target="blank">https://valerykoretsky.com</a>
+				</div>
+			</fieldset>
+		<footer>
+			<div class="copy">
+				<a href="https://valerykoretsky.com/" target="blank">valerykoretsky.com</a> &copy; 2016-2018
+			</div>
+		</footer>
+	</div>
+</div>
+</body>
+</html>
+
+	

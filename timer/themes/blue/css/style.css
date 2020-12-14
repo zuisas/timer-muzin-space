@@ -1,0 +1,40 @@
+@import url(http://fonts.googleapis.com/css?family=Open+Sans+Condensed:300&subset=latin,cyrillic);
+* {margin:0px;padding:0px;}
+.countdown_block {display:block;float:left;margin-right:0px;position:relative;height:90px;}
+.digit {
+	display:block;
+	float:left;
+	margin:0px 2px 0px 2px;
+	border-radius:15px;
+	text-align:center;
+	color:#fff;
+	letter-spacing:-1px;
+	box-shadow:1px 1px 1px rgba(4, 4, 4, 0.35);
+	font-size:32pt;
+	padding:5px 14px;
+	background: #3083ad; /* Old browsers */
+	background: -moz-linear-gradient(-45deg, #3083ad 0%, #2c539e 100%); /* FF3.6+ */
+	background: -webkit-gradient(linear, left top, right bottom, color-stop(0%,#3083ad), color-stop(100%,#2c539e)); /* Chrome,Safari4+ */
+	background: -webkit-linear-gradient(-45deg, #3083ad 0%,#2c539e 100%); /* Chrome10+,Safari5.1+ */
+	background: -o-linear-gradient(-45deg, #3083ad 0%,#2c539e 100%); /* Opera 11.10+ */
+	background: -ms-linear-gradient(-45deg, #3083ad 0%,#2c539e 100%); /* IE10+ */
+	background: linear-gradient(135deg, #3083ad 0%,#2c539e 100%); /* W3C */
+	filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#3083ad', endColorstr='#2c539e',GradientType=1 ); /* IE6-9 fallback on horizontal gradient */
+	font-family:Open Sans Condensed,serif;
+}
+.separated {
+	float:left;
+	color:#2c539e;
+}
+.separated:after {
+	content:":";
+	padding:15px 0px 10px 0px;
+	font-size:38pt;
+}
+.countdown_block_title {
+	text-align:center;
+	font-family:Open Sans Condensed,serif;
+	bottom:0px;
+	position:absolute;
+	width:100%;
+}

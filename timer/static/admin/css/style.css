@@ -1,0 +1,49 @@
+/*****************************
+Разработчик: Валерий Корецкий
+Сайт: http://spydec.com/
+Продукт: Таймер/Счетчик обратного отсчета
+Дата выпуска: 22.07.2014
+Статус: Free
+*****************************/
+@import url(http://fonts.googleapis.com/css?family=Ubuntu:400,700&subset=latin,cyrillic);
+html,body {padding:0px;margin:0px;font-size:10pt;font-family:Ubuntu,Arial,serif;color:#666666;width:100%;height:100%;background: #f4f4f4;background: -moz-radial-gradient(center, ellipse cover, #f4f4f4 0%, #a7e8f9 100%);background: -webkit-gradient(radial, center center, 0px, center center, 100%, color-stop(0%,#f4f4f4), color-stop(100%,#a7e8f9));background: -webkit-radial-gradient(center, ellipse cover, #f4f4f4 0%,#a7e8f9 100%);background: -o-radial-gradient(center, ellipse cover, #f4f4f4 0%,#a7e8f9 100%);background: -ms-radial-gradient(center, ellipse cover, #f4f4f4 0%,#a7e8f9 100%);background: radial-gradient(ellipse at center, #f4f4f4 0%,#a7e8f9 100%);filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#f4f4f4', endColorstr='#a7e8f9',GradientType=1 );}
+input:focus { outline: none; }
+.container {width:100%;height:100%;position:relative;}
+.content {width:700px;margin:0px auto;}
+h1 {font-size: 4em;color: #f4f4f4;font-weight: 700;text-align: center;text-shadow: 1px 2px 0px #90C6DB;}
+fieldset {  border: 2px solid #4FB5CF;margin:10px 0px 20px 0px;  background: #fff;  border-radius: 3px;}
+fieldset legend {  background: #4FB5CF;  color: #fff;  padding: 5px 10px;  border-radius: 3px;  box-shadow: 0 0 0 2px #fff;  margin-left: 20px;}
+.form-element {border-bottom:#9EC4DD 1px dotted;padding: 10px;}
+.label {padding: 1px 0px;display: block;}
+.clear {clear:both;}
+.time-block {margin:5px 0px 2px 0px;}
+.auth-panel {width:420px;margin:10px auto 30px auto;}
+.margintop {margin-top:30px !important;}
+@media screen and (-webkit-min-device-pixel-ratio:0) { select {padding-right:18px;} }
+.long select {width:200px;}
+select { padding:3px;  margin: 0;  -webkit-border-radius:4px;  -moz-border-radius:4px;  border-radius:4px;  -webkit-box-shadow: 0 3px 0 #6CC6E9, 0 -1px #fff inset;  -moz-box-shadow: 0 3px 0 #6CC6E9, 0 -1px #fff inset;  box-shadow: 0 3px 0 #6CC6E9, 0 -1px #fff inset;  background: #EDFBFF;  color:#888;  border:none;  outline:none;  display: inline-block;  -webkit-appearance:none;  -moz-appearance:none;  appearance:none;  cursor:pointer;width:50px;}
+.select label {position:relative;margin-right:10px;}
+.select label:after {  content:'<>';  font:11px "Consolas", monospace;  color:#aaa;  -webkit-transform:rotate(90deg);  -moz-transform:rotate(90deg);  -ms-transform:rotate(90deg);  transform:rotate(90deg);  right:7px; top:-1px;  padding:0 0 2px;  border-bottom:1px solid #ddd;  position:absolute;  pointer-events:none;}
+.select label:before {  content:'';  right:0px; top:-1px;  width:25px; height:20px;  background:#EDFBFF;  position:absolute;  pointer-events:none;  display:block;}
+.checkbox input[type="checkbox"] {margin:4px !important;}
+.checkbox {width: 16px;float:left;margin-right:10px;position: relative;}
+.checkbox label {cursor: pointer;position: absolute;width: 16px;height: 16px;top: 0;border-radius: 4px;
+-webkit-box-shadow: inset 0px 1px 1px white, 0px 1px 3px rgba(77,137,192,0.5);-moz-box-shadow: inset 0px 1px 1px white, 0px 1px 3px rgba(77,137,192,0.5);box-shadow: inset 0px 1px 1px white, 0px 1px 3px rgba(77,137,192,0.5);background: #6CC6E9;
+background: -webkit-linear-gradient(top, #6CC6E9 0%, #76B6DA 40%, #4EAADF 100%);background: -moz-linear-gradient(top, #6CC6E9 0%, #76B6DA 40%, #4EAADF 100%);background: -o-linear-gradient(top, #6CC6E9 0%, #76B6DA 40%, #4EAADF 100%);background: -ms-linear-gradient(top, #6CC6E9 0%, #76B6DA 40%, #4EAADF 100%);background: linear-gradient(top, #6CC6E9 0%, #76B6DA 40%, #4EAADF 100%);filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#6CC6E9', endColorstr='#4EAADF',GradientType=0 );}
+.checkbox label:after {-ms-filter: "progid:DXImageTransform.Microsoft.Alpha(Opacity=0)";filter: alpha(opacity=0);opacity: 0;content: '';position: absolute;width: 7px;height: 5px;background: transparent;top: 3px;left: 3px;border: 3px solid #E5F6FF;border-top: none;border-right: none;
+-webkit-transform: rotate(-45deg);-moz-transform: rotate(-45deg);-o-transform: rotate(-45deg);-ms-transform: rotate(-45deg);transform: rotate(-45deg);}
+.checkbox label:hover::after {-ms-filter: "progid:DXImageTransform.Microsoft.Alpha(Opacity=30)";filter: alpha(opacity=30);opacity: 0.5;}
+.checkbox input[type="checkbox"]:checked + label:after {-ms-filter: "progid:DXImageTransform.Microsoft.Alpha(Opacity=100)";filter: alpha(opacity=100);opacity: 1;}
+input[type="text"],input[type="password"],input[type="number"] {  outline: none;  padding: 6px 0px 6px 6px;  margin: 5px 1px 3px 0px;  background:#EDFBFF;border: 1px solid #CDEDFD;color:#444444;width:400px;}
+input[type="text"]:focus,input[type="password"]:focus,input[type="number"]:focus {  box-shadow: 0 0 5px rgba(81, 203, 238, 1);  border: 1px solid rgba(81, 203, 238, 1);}
+.checkbox-list {margin:5px 0px 2px 0px;}
+.checkbox-block {width:100px;float:left;}
+.submit-button {  border: 1px solid #167575;  background: #3696a3;  background: -webkit-gradient(linear, left top, left bottom, from(#5abcbf), to(#3696a3));  background: -webkit-linear-gradient(top, #5abcbf, #3696a3);  background: -moz-linear-gradient(top, #5abcbf, #3696a3);  background: -ms-linear-gradient(top, #5abcbf, #3696a3);  background: -o-linear-gradient(top, #5abcbf, #3696a3);  background-image: -ms-linear-gradient(top, #5abcbf 0%, #3696a3 100%);  -webkit-border-radius: 4px;  -moz-border-radius: 4px;  border-radius: 4px;  -webkit-box-shadow: rgba(255,255,255,0.4) 0 1px 0, inset rgba(255,255,255,0.4) 0 1px 0;  -moz-box-shadow: rgba(255,255,255,0.4) 0 1px 0, inset rgba(255,255,255,0.4) 0 1px 0;  box-shadow: rgba(255,255,255,0.4) 0 1px 0, inset rgba(255,255,255,0.4) 0 1px 0;  text-shadow: #005a5c 0 1px 0;  color: #ffffff;  padding: 15px 40px;  font-size: 14px;  text-decoration: none;  vertical-align: middle;  display:block;  margin:0px auto;  cursor:pointer;  }
+.submit-button:hover {  border: 1px solid #167575;  text-shadow: #005a5c 0 1px 0;  background: #1d9cad;  background: -webkit-gradient(linear, left top, left bottom, from(#39cccc), to(#1d9cad));  background: -webkit-linear-gradient(top, #39cccc, #1d9cad);  background: -moz-linear-gradient(top, #39cccc, #1d9cad);  background: -ms-linear-gradient(top, #39cccc, #1d9cad);  background: -o-linear-gradient(top, #39cccc, #1d9cad);  background-image: -ms-linear-gradient(top, #39cccc 0%, #1d9cad 100%);  color: #fff;  }
+.submit-button:active {  text-shadow: #005a5c 0 1px 0;  border: 1px solid #167575;  background: #5abcbf;  background: -webkit-gradient(linear, left top, left bottom, from(#3696a3), to(#1d9cad));  background: -webkit-linear-gradient(top, #3696a3, #5abcbf);  background: -moz-linear-gradient(top, #3696a3, #5abcbf);  background: -ms-linear-gradient(top, #3696a3, #5abcbf);  background: -o-linear-gradient(top, #3696a3, #5abcbf);  background-image: -ms-linear-gradient(top, #3696a3 0%, #5abcbf 100%);  color: #fff;  }
+.copy {margin:50px auto 15px auto;text-align:center;color:#333333;}
+.copy a {text-decoration:none;border-bottom:#5abcbf 1px solid;color:#167575;}
+.copy a:hover {border-bottom:none;color:#5abcbf;}
+.exit {right:0px;top:0px;position:absolute;text-align:center;opacity:0.5;}
+.exit:hover {opacity:1.0;}
+.exit a {font-size:30px;width:32px;font-weight:700;text-decoration:none;display:block;padding:10px 10px 12px 10px;background:rgba(2,2,2,0.5);color:#fff;text-shadow:0px 1px 2px #3C3C3C;}

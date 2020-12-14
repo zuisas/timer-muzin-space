@@ -1,0 +1,41 @@
+@import url(http://fonts.googleapis.com/css?family=Open+Sans+Condensed:300&subset=latin,cyrillic);
+* {margin:0px;padding:0px;}
+.countdown_block {display:block;float:left;margin-right:0px;position:relative;height:90px;}
+.digit {
+	display:block;
+	float:left;
+	margin:0px 2px 0px 2px;
+	border-radius:15px;
+	text-align:center;
+	color:#fff;
+	letter-spacing:-1px;
+	box-shadow:1px 1px 1px rgba(4, 4, 4, 0.35);
+	font-size:32pt;
+	padding:5px 14px;
+	background: #a90329;
+	background: -moz-radial-gradient(center, ellipse cover, #a90329 0%, #8f0222 44%, #6d0019 100%);
+	background: -webkit-gradient(radial, center center, 0px, center center, 100%, color-stop(0%,#a90329), color-stop(44%,#8f0222), color-stop(100%,#6d0019));
+	background: -webkit-radial-gradient(center, ellipse cover, #a90329 0%,#8f0222 44%,#6d0019 100%);
+	background: -o-radial-gradient(center, ellipse cover, #a90329 0%,#8f0222 44%,#6d0019 100%);
+	background: -ms-radial-gradient(center, ellipse cover, #a90329 0%,#8f0222 44%,#6d0019 100%);
+	background: radial-gradient(ellipse at center, #a90329 0%,#8f0222 44%,#6d0019 100%);
+	filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#a90329', endColorstr='#6d0019',GradientType=1 );
+	font-family:Open Sans Condensed,serif;
+}
+.separated {
+	float:left;
+	color:#a90329;
+}
+.separated:after {
+	content:":";
+	padding:15px 0px 10px 0px;
+	font-size:38pt;
+}
+.countdown_block_title {
+	text-align:center;
+	font-family:Open Sans Condensed,serif;
+	bottom:0px;
+	position:absolute;
+	width:100%;
+	color:#6d0019;
+}
